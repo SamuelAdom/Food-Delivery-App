@@ -74,11 +74,12 @@ const Add = ({url}) => {
                         <option value="Pure Veg">Pure Veg</option>
                         <option value="Pasta">Pasta</option>
                         <option value="Noodles">Noodles</option>
+                        <option value="Local">Local</option>
                     </select>
                 </div>
                 <div className="add-price flex-col">
                     <p>Product price</p>
-                    <input onChange={onChangeHandler} value={data.price} type="number" name='price' placeholder='$20'/>
+                    <input onChange={onChangeHandler} value={data.price} type="number" name='price' placeholder='GH₵20'/>
                 </div>
             </div>
             <button type='submit' className='add-btn'>ADD</button>

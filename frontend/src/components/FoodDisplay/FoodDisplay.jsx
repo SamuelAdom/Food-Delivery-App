@@ -6,11 +6,6 @@ import FoodItem from '../FoodItem/FoodItem';
 const FoodDisplay = ({ category }) => {
     const { food_list = [] } = useContext(StoreContext); 
 
-    // Debugging: Log the food_list and category
-    console.log('food_list:', food_list);
-    console.log('category:', category);
-    console.log("food_list:", food_list);
-
 
     // Filter food items based on category
     const filteredFoodList = category === 'All' 
@@ -22,7 +17,7 @@ const FoodDisplay = ({ category }) => {
 
     return (
         <div className='food-display' id='food-display'>
-            <h2>Top dishes near you</h2>
+            <h2>Discover Delicious Meals Nearby</h2>
             <div className="food-display-list">
                 {filteredFoodList.length > 0 ? (
                     filteredFoodList.map((item) => (
