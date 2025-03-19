@@ -40,7 +40,7 @@ app.get("/",(req,res)=>{
 
 
 
-
+//mongodb+srv://Samuel:davidvilla1738@biteexpresscluster.431zj.mongodb.net/?retryWrites=true&w=majority&appName=BiteExpressCluster
 app.listen(port,()=>{
     console.log(`Server running on http://localhost:${port}`)
 })
