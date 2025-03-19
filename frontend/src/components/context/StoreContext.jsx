@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import axios from 'axios'
 
+
 export const StoreContext = createContext(null)
 
 const StoreContextProvider = (props) => {
@@ -42,10 +43,16 @@ const StoreContextProvider = (props) => {
         return totalAmount;
     }
 
-    const fetchFoodList = async () =>{
-        const response = await axios.get(url+"/api/food/list");
-        setFoodList(response.data.data)
+    const fetchFoodList = async () => {
+    try {
+        const response = await axios.get(url + "/api/food/list");
+        console.log("API Response:", response.data);
+        setFoodList(response.data.data);
+    } catch (error) {
+        console.error("Error fetching food list:", error);
     }
+};
+
 
     const loadCartData = async (token) =>{
         const response = await axios.post(url+"/api/cart/get",{},{headers:{token}})

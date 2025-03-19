@@ -7,6 +7,10 @@ import 'dotenv/config';
 import cartRouter from './routes/cartRoute.js';
 import orderRouter from './routes/orderRoute.js';
 
+
+
+
+
 //app config
 const app = express()
 const port = 4000
@@ -27,10 +31,17 @@ app.use('/api/order', orderRouter)
 
 app.get("/",(req,res)=>{
         res.send("API working")
+        
+
 })
+
+
+
+
+
+
 
 app.listen(port,()=>{
     console.log(`Server started on http://localhost:${port}`)
 })
 
-//mongodb+srv://dulanjalisenarathna93:E2JUb0zfaT2FVp8D@cluster0.exkxkun.mongodb.net/?
