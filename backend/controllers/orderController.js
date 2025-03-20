@@ -18,29 +18,34 @@ const placeOrder = async (req, res) =>{
 
         await newOrder.save();
         await userModel.findByIdAndUpdate(req.body.userId,{cartData:{}});
+        const exchangeRate = 15.50;
 
         const line_items = req.body.items.map((item)=>({
             price_data :{
-                currency: "lkr",
+                currency: "usd",
                 product_data:{
                     name: item.name
                 },
-                unit_amount:item.price*100*300
+                unit_amount: Math.round((item.price / exchangeRate) * 100), // Convert GHS to USD cents
             },
             quantity: item.quantity
         }))
 
+      
+        const deliveryChargeGHS = 2; // Delivery charge in GHS
+        
+        const deliveryChargeUSD = Math.round((deliveryChargeGHS / exchangeRate) * 100); // Convert to cents
+        
         line_items.push({
-            price_data :{
-                currency:"lkr",
-                product_data:{
-                    name:"Delivery Charges"
+            price_data: {
+                currency: "usd",
+                product_data: {
+                    name: "Delivery Charges"
                 },
-                unit_amount:2*100*80
+                unit_amount: deliveryChargeUSD, 
             },
-            quantity:1
-        })
-
+            quantity: 1
+        });
         const session = await stripe.checkout.sessions.create({
             line_items:line_items,
             mode:'payment',

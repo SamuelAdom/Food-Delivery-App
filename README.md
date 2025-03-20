@@ -55,7 +55,7 @@ Create a .env file in the backend directory and add the following:
 
 ```sh
 JWT_SECRET="random#secret"
-STRIPE_SECRET_KEY="sk_test_51JhWAiRXoTvIuM91beRv8XldfL3GGKyuLhzabkSwNeIXryY51G9UKnwNUFcotg0N6k4UAGhiprjJd4XhAF85JCN4004TC42zkl"
+STRIPE_SECRET_KEY="sk_test_51R4VzrKCQqgQPv2EQ2CTyiVtKcWw8tQEdqfHCwcdauJKqIdHw1gnYiw5X0HqHe5yurMHDsOXxOCGZdA1PVWDn8Ue00AFZygj20"
 ##add your mongodb connection string
 MONGODB_URI=""
 ```
