@@ -12,7 +12,7 @@ dotenv.config();
 
 // App config
 const app = express();
-const port = process.env.PORT || 4000; // Use Vercel's assigned port
+const port = process.env.PORT || 4000; 
 
 // Middleware
 app.use(express.json());
@@ -27,7 +27,8 @@ app.use("/api/user", userRouter);
 app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
 
-
+// Serve static files (if needed)
+app.use("/images", express.static("uploads"));
 
 app.get("/", (req, res) => {
     res.send("API working");
@@ -38,4 +39,4 @@ app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
 
-l
+export default app; 

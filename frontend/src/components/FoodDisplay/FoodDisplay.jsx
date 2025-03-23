@@ -12,8 +12,7 @@ const FoodDisplay = ({ category }) => {
         ? food_list 
         : food_list.filter(item => item.category === category);
 
-    // Debugging: Log the filtered food list
-    console.log('filteredFoodList:', filteredFoodList);
+
 
     return (
         <div className='food-display' id='food-display'>
